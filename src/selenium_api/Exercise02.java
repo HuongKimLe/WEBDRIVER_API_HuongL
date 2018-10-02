@@ -146,18 +146,28 @@ public class Exercise02 {
 	  driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys("1234567890");
 	  	  
 	  driver.findElement(By.xpath("//button[@title='Register']")).click();
-		  
-	
-	
+	  
+	  // Verify successful message
+	  String mess =  driver.findElement(By.xpath("//span[text()='Thank you for registering with Main Website Store.']")).getText();
+	  Assert.assertEquals(mess, "Thank you for registering with Main Website Store.");
+	  
+	  // Log out
+	  driver.findElement(By.xpath("//span[text()='Account' and @class='label']")).click();
 	  driver.findElement(By.xpath("//a[@title='Log Out']")).click();
-	  driver.navigate().forward();
 	  
-	  String check = driver.getCurrentUrl();
-	  Assert.assertEquals(check, "http://live.guru99.com/index.php/");
+	  // Step 08
+	  //Wait 5s
+	    try {
+	    	TimeUnit.SECONDS.sleep(10);
+	    } catch (InterruptedException e) {
+	    	// TODO Auto- generated catch block
+	    	e.printStackTrace();
+	    }
 	  
-	  
-	//  String checkTitle = driver.getTitle();
-	//  Assert.assertEquals(checkTitle, "Home page");
+	    
+	    // Verify navigative to Home Page
+	  String checkTitle = driver.getTitle();
+	  Assert.assertEquals(checkTitle, "Home page");
 	  
   }
 
