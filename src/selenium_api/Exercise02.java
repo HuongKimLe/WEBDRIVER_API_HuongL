@@ -112,6 +112,12 @@ public class Exercise02 {
  
   */
   
+ public int randomData() {
+	  Random random = new Random();
+	  int number = random.nextInt(99999);
+	  return number;
+	  
+ }
   @Test
   public void TC05_CreatenewAccout() {
 	  	
@@ -130,19 +136,18 @@ public class Exercise02 {
 	  driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys("Le1");
 	
 	  // Format: xxxx@xxx.com
-	  String email = "selem=nium061" + randomData() + "@gmail.com";
-	  System.out.println(email);
+	  String email = "selenium061" + randomData() + "@gmail.com";
+	  //System.out.println(email);	  
+	  driver.findElement(By.xpath("//input[@id='email_address']")).sendKeys(email);
 	  
-	  
-	 // driver.findElement(By.xpath("//input[@id='email_address']")).sendKeys("ltkhuong771@gmail.com");
 	  	  
 	  driver.findElement(By.xpath("//input[@id='password']")).sendKeys("1234567890");
 	  	  
 	  driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys("1234567890");
 	  	  
 	  driver.findElement(By.xpath("//button[@title='Register']")).click();
-	  
-	  driver.findElement(By.id("//span[text()='Thank you for registering with Main Website Store.']"));
+		  
+	
 	
 	  driver.findElement(By.xpath("//a[@title='Log Out']")).click();
 	  driver.navigate().forward();
@@ -161,11 +166,6 @@ public class Exercise02 {
 	 // driver.quit();
   }
   
-  public int randomData() {
-	  Random random = new Random();
-	  int number = random.nextInt(99999);
-	  return number;
-	  
-  }
+  
 
 }
