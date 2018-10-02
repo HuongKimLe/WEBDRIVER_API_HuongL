@@ -22,8 +22,8 @@ public class Exercise02 {
 	 driver = new FirefoxDriver();	 
 	 
 	  } 
-/*
-  @Test
+
+ @Test(enabled = false)
   public void TC01_VerifyURLandTitle() {
 	  
 	  //truy cap vao trang web
@@ -56,7 +56,7 @@ public class Exercise02 {
   
   
 
- @Test
+ @Test(enabled = false)
  public void TC02_LoginEmpty() {
 	  
 	  driver.get("http://live.guru99.com/");
@@ -74,7 +74,7 @@ public class Exercise02 {
 	 Assert.assertEquals(VerifyErrMessPass, "This is a required field." );
  }
  
-  @Test
+ @Test(enabled = false)
   public void TC03_LoginInvalidEmail() {
 	  driver.get("http://live.guru99.com/");	
 	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -91,7 +91,7 @@ public class Exercise02 {
 		  
   }
  
-  @Test
+ @Test(enabled = false)
   public void TC04_LoginPasswordIncorrecr() {
 	  	 
 	  driver.get("http://live.guru99.com/");
@@ -110,7 +110,7 @@ public class Exercise02 {
 	  
   }
  
-  */
+
   
  public int randomData() {
 	  Random random = new Random();
