@@ -84,7 +84,7 @@ public class exercise03 {
 		isElementEnable(ButtonisEnable);
   }
 	
-  @Test
+  @Test(enabled = false)
 public void CheckElementenableorDisable() {
 	  
 	  driver.get("http://daominhdam.890m.com/");
@@ -103,7 +103,7 @@ public void CheckElementenableorDisable() {
 		
 		WebElement Job2Select = driver.findElement(By.xpath("//select[@id='job2']"));
 		
-		WebElement InterestcheckboxDisable = driver.findElement(By.xpath("//label[text()='Checkbox is disabled']"));
+		WebElement InterestcheckboxDisable = driver.findElement(By.xpath("//input[@id='radio-disabled']"));
 		
 		WebElement Slide02Highlight = driver.findElement(By.xpath("//input[@id='slider-2']"));
 		
@@ -119,8 +119,24 @@ public void CheckElementenableorDisable() {
 }
 		
 	  
-  @Test
+  @Test(enabled = true)
   public void CheckElementSelected() {
+	  driver.get("http://daominhdam.890m.com/");
+	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  driver.manage().window().maximize();
+	  
+	  		WebElement ageRadioButton2 = driver.findElement(By.xpath("//input[@id='under_18']"));
+	  		ageRadioButton2.click();
+	  		
+	  		//Interests (Development)
+			WebElement Interestcheckbox = driver.findElement(By.xpath("//input[@id='development']"));
+			Interestcheckbox.click();
+			
+			// Verify 
+			isElementSelected(ageRadioButton2);
+			isElementSelected(Interestcheckbox);			
+			
+	  
   }
 
   @AfterClass
@@ -133,6 +149,14 @@ public void CheckElementenableorDisable() {
 		  System.out.println("Element is enabled");
 	  } else {
 		  System.out.println("Element is disabled");
+	  }
+  }
+  
+  public void isElementSelected(WebElement select) {
+	  if(select.isSelected()) {
+		  System.out.println("Element selected");
+	  }else {
+		  select.click();
 	  }
   }
   
