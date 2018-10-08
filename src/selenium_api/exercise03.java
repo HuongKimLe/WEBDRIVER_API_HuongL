@@ -1,15 +1,21 @@
 package selenium_api;
 
 import org.testng.annotations.Test;
+
+
+
 import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+
 
 public class exercise03 {
 	
@@ -119,9 +125,10 @@ public void CheckElementenableorDisable() {
 }
 		
 	  
-  @Test(enabled = true)
+
+@Test(enabled = true)
   public void CheckElementSelected() {
-	  driver.get("http://daominhdam.890m.com/");
+	  driver.get("https://daominhdam.github.io/basic-form/");
 	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  driver.manage().window().maximize();
 	  
@@ -129,9 +136,10 @@ public void CheckElementenableorDisable() {
 	  		ageRadioButton2.click();
 	  		
 	  		//Interests (Development)
-			WebElement Interestcheckbox = driver.findElement(By.xpath("//input[@id='development']"));
+			WebElement Interestcheckbox = driver.findElement(By.xpath("//input[@value='interest_development']"));
 			Interestcheckbox.click();
-			
+			//Assert.assertTrue(Interestcheckbox.isSelected());
+												
 			// Verify 
 			isElementSelected(ageRadioButton2);
 			isElementSelected(Interestcheckbox);			
