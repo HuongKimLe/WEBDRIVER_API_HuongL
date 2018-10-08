@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -24,7 +25,9 @@ public class exercise03 {
 	
   @BeforeClass
   public void beforeClass() {
-	  driver= new FirefoxDriver();	
+	 // driver= new FirefoxDriver();	
+	  System.setProperty("webdriver.chrome.driver", "C:\\\\Huong_Data\\\\Data\\\\Automating testing\\\\Software\\chromedriver.exe");
+	  driver = new ChromeDriver();
 	 
 	  }
   @Test(enabled = false)
