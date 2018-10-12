@@ -31,7 +31,7 @@ public class Topic05_HandleDropdown {
 
 	}
 @Test
-	public void TS01DropdownList() {
+	public void TS01DropdownList() throws InterruptedException {
 		
 		//Step 01
 		Select select = new Select(driver.findElement(By.xpath("//select[@id='job1']")));
@@ -41,6 +41,7 @@ public class Topic05_HandleDropdown {
 		
 		//Step 03 - Chọn giá trị Automation Tester trong dropdown bằng phương thức selectVisible
 		select.selectByVisibleText("Automation Tester");
+		Thread.sleep(3000);
 		
 		//Step 04 - Kiểm tra giá trị đã được chọn thành công
 		System.out.println(select.getFirstSelectedOption().getText());
@@ -48,6 +49,7 @@ public class Topic05_HandleDropdown {
 		
 		//Step 05 - Chọn giá trị Manual Tester trong dropdown bằng phương thức selectValue
 		select.selectByValue("manual");
+		Thread.sleep(3000);
 		
 		//Step 06 - Kiểm tra giá trị đã được chọn thành công
 		System.out.println(select.getFirstSelectedOption().getText());
@@ -55,6 +57,7 @@ public class Topic05_HandleDropdown {
 		
 		//Step 07 - Chọn giá trị Mobile Tester trong dropdown bằng phương thức selectIndex		
 		select.selectByIndex(3);
+		Thread.sleep(3000);
 		
 		//Step 08 - Kiểm tra giá trị đã được chọn thành công
 		System.out.println(select.getFirstSelectedOption().getText());
